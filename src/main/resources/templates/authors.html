@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/master.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+<div layout:fragment="context">
+
+
+<div class="container mt-5">
+
+
+
+    <div>
+        <div class="alert alert-success" role="alert" th:if="${success}">
+            New Author Successfully Added.
+        </div>
+
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Genre</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="author:${authors}">
+            <td th:text="${author.id}"></td>
+            <td th:text="${author.name}"></td>
+            <td th:text="${author.genre}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <a href="#" th:href="@{/author}" class="btn btn-primary">New Author</a>
+</div>
+
+</div>
+</body>
+</html>
